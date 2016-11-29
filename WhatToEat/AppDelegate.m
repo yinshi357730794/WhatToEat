@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "UIFactory.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,48 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //正式调教: !CRUserObj(@"firstTimeLauch")
+    if (1) {
+        CRUserSetObj(@"1", @"firstTimeLauch");
+        NSArray *foodList1 = [[UIFactory makeDefaultBreakfastDataSource] prepareForUserDefaultSaving];
+        NSMutableArray *foodList2 = [NSMutableArray arrayWithObjects:@"红烧肉",@"米饭",@"小白菜", nil];
+        NSMutableArray *foodList3 = [NSMutableArray arrayWithObjects:@"粥",@"玉米",@"水果拼盘", nil];
+        
+        CRUserSetObj(foodList1, @"UDBreakfast");
+        CRUserSetObj(foodList2, @"UDLunch");
+        CRUserSetObj(foodList3, @"UDSupper");
+        
+        //定义默认的早餐(meal)结构
+        //@{@"type":@0,@"count":@1}表示: "类型"是:主食, 然后下面有1个子元素
+        NSArray *defaultMealStucture1 =  [NSArray arrayWithObjects:
+                                          @{@"type":@1,@"count":@1},
+                                          @{@"type":@2,@"count":@1},
+                                          @{@"type":@3,@"count":@1},
+                                          @{@"type":@4,@"count":@1},nil];
+        CRUserSetObj(defaultMealStucture1, @"UDDefaultBreakfastStucture");
+        
+        NSArray *defaultMealStucture2 =   [NSArray arrayWithObjects:
+                                           @{@"type":@1,@"count":@1},
+                                           @{@"type":@2,@"count":@1},
+                                           @{@"type":@3,@"count":@1},
+                                           @{@"type":@4,@"count":@1},nil];
+        CRUserSetObj(defaultMealStucture2, @"UDDefaultLunchStucture");
+        
+        NSArray *defaultMealStucture3 =   [NSArray arrayWithObjects:
+                                           @{@"type":@1,@"count":@1},
+                                           @{@"type":@2,@"count":@1},
+                                           @{@"type":@3,@"count":@1},
+                                           @{@"type":@4,@"count":@1},nil];
+        CRUserSetObj(defaultMealStucture3, @"UDDefaultSupperStucture");
+        
+        
+        
+        //设置:默认的大图模式
+        CRUserSetBOOL(YES, @"UDFavouriteListMode");
+        
+    }
+    
     return YES;
 }
 
