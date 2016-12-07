@@ -172,7 +172,9 @@
     
     exporter.outputFileType = @"com.apple.m4a-audio";
     
-    NSString *exportFilePath = [documentsDirectoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a",[song valueForProperty:MPMediaItemPropertyTitle]]];
+    NSString *songName = [NSString stringWithFormat:@"%@.m4a",[song valueForProperty:MPMediaItemPropertyTitle]];
+    
+    NSString *exportFilePath = [documentsDirectoryPath stringByAppendingPathComponent:songName];
     
     NSError *error1;
     

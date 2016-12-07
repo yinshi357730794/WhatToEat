@@ -14,6 +14,8 @@
 @property(nonatomic)AVAudioPlayer *avAudioPlayer;
 @property(nonatomic)AVAssetExportSession *exportor;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(nonatomic,copy)NSArray *musicNameList;
+
 
 @end
 
@@ -37,6 +39,21 @@
     }
     
     
+    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [dirs objectAtIndex:0];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    // 首先读取那个目录下面原来就有的.mp3或者.m4a文件, 如果有, 那么闲读出来.
+     _musicNameList = [fileManager contentsOfDirectoryAtPath:documentsDirectoryPath error:nil];
+    
+    NSLog(@"%@",_musicNameList);
+    
+   // NSURL* exportURL = [NSURL fileURLWithPath:nil] ;
+    
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,7 +75,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataSource.count;
+    return _musicNameList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -68,6 +85,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell1"];
     }
     
+    /*
     AVAssetExportSession *exportor = self.dataSource[indexPath.row];
     
     NSString * urlString = exportor.outputURL.absoluteString;
@@ -76,7 +94,15 @@
     //把乱码转换成汉字:
     NSString *transString = nameWithoutDotFormat.stringByRemovingPercentEncoding;
     cell.textLabel.text = transString;
+    */
+    NSString *transString = nameWithoutDotFormat.stringByRemovingPercentEncoding;
+
     
+    NSString *name = _musicNameList[indexPath.row];
+    //过滤掉后缀".m4a"
+    NSString *realName = [name componentsSeparatedByString:@"."][0];
+    
+    cell.textLabel.text = realName;
     return cell;
     
 }
@@ -84,9 +110,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    AVAssetExportSession *exportor = self.dataSource[indexPath.row];
+    //AVAssetExportSession *exportor = self.dataSource[indexPath.row];
     
-    [MusicHelper playMusicAtPath:exportor.outputURL];
+    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [dirs objectAtIndex:0];
+    
+    NSString *musicFileAbsolutePath = [documentsDirectoryPath stringByAppendingPathComponent:_musicNameList[indexPath.row]];
+
+    
+    
+    [MusicHelper playMusicAtPath:[NSURL URLWithString:musicFileAbsolutePath]];
     
 }
 

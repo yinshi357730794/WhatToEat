@@ -12,11 +12,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--吃啥-->
         <scene sceneID="M27-VD-Uy9">
             <objects>
                 <navigationController id="H8B-M2-MBo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="BGe-yO-ZQH"/>
+                    <tabBarItem key="tabBarItem" title="吃啥" id="BGe-yO-ZQH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ybK-Q6-zJX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -156,9 +156,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="H8B-M2-MBo" kind="relationship" relationship="viewControllers" id="4Kr-k0-YRx"/>
                         <segue destination="qKY-H7-KjA" kind="relationship" relationship="viewControllers" id="rd4-3Z-INT"/>
                         <segue destination="ycQ-xX-OXq" kind="relationship" relationship="viewControllers" id="lDw-R9-Klt"/>
-                        <segue destination="H8B-M2-MBo" kind="relationship" relationship="viewControllers" id="4Kr-k0-YRx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aEk-89-37h" userLabel="First Responder" sceneMemberID="firstResponder"/>
