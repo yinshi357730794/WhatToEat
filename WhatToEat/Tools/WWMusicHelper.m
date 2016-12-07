@@ -60,6 +60,7 @@
 
 }
 
+
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
 
     NSLog(@"%@",player);
@@ -70,12 +71,32 @@
     [_avAudioPlayer play];
 }
 
+
 - (BOOL)playAtSliderValue:(CGFloat)value{
     NSTimeInterval time = value * _avAudioPlayer.duration;
     _avAudioPlayer.currentTime =  time;
     [_avAudioPlayer play];
     return YES;
     //return  [_avAudioPlayer playAtTime:time];
+}
+
+-(void)playMusicAtPath:(NSURL *)musicURL{
+    if (_avAudioPlayer.isPlaying) {
+        [_avAudioPlayer stop];
+
+    }
+    
+    _avAudioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:musicURL error:nil];
+    _avAudioPlayer.delegate = self;
+    
+    //设置音乐播放次数  -1为一直循环,1为支循环1次
+    _avAudioPlayer.numberOfLoops = 1;
+    
+    //预播放
+    [_avAudioPlayer prepareToPlay];
+    
+    [_avAudioPlayer play];
+
 }
 
 -(void)pause{

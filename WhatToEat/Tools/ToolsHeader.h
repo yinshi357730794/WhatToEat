@@ -23,6 +23,6 @@
 #import "YSAlertController.h"
 
 #import "WWHelper.h"
-
+#import "WWMusicHelper.h"
 
 #endif /* ToolsHeader_h */

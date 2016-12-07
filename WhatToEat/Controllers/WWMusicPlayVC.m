@@ -11,7 +11,9 @@
 #import "TOTextInputChecker.h"
 #import "NSString+Expand.h"
 #import "YSAlertController.h"
-
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+#import "WWAudioLibraryVC.h"
 
 @interface WWMusicPlayVC ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel1;
@@ -31,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *playLoopBtn; //循环按钮
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 
+@property (nonatomic) NSMutableArray *m4aMusicSourceList;   //转存音乐源文件成功后, 把新的m4a格式的源文件信息保存在此数组中
+
 
 
 @end
@@ -43,14 +47,18 @@
     [MusicHelper prepareToPlayMusic];
     
     
-    _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimeLabel) userInfo:nil repeats:YES];
+    _timeLabel1.text = [MusicHelper currentTime];
     
+    _timeLabel2.text = [MusicHelper duration];
+
+    //定时关闭
     [_autoStopView addTapRecognizer:self action:@selector(autoStopViewPressed)];
+    //先让"定时关闭"的view藏起来
+    _topSpaceBetweenView1and2.constant = -44.0;
+
     
     _theTF1.delegate = self.theChecker1;
     
-    //先让设置倒计时的view藏起来
-    _topSpaceBetweenView1and2.constant = -44.0;
     
     
 }
@@ -60,15 +68,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"show_tab3_1"]) {
+        WWAudioLibraryVC *destVC = segue.destinationViewController;
+        destVC.dataSource = self.m4aMusicSourceList;
+        
+    }
+    
 }
-*/
+
 
 
 - (IBAction)musicBtnPressed:(UIButton *)sender {
@@ -76,19 +91,29 @@
     
     if (sender.tag == 101) {
         if (sender.selected) {
+            if (_progressTimer.isValid) {
+                [_progressTimer setFireDate:[NSDate date]];
+            } else {
+                _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimeLabel) userInfo:nil repeats:YES];
+
+            }
+            
             [MusicHelper play];
+            [self QueryAllMusic];
             
         }else{
+            //暂停Timer
+            [_progressTimer setFireDate:[NSDate distantFuture]];
             [MusicHelper pause];
         }
-
+        
     } else if(sender.tag == 102) {
         if (sender.selected) {
             MusicHelper.numberOfLoops = 1;
             
         } else {
             MusicHelper.numberOfLoops = -1;
-
+            
         }
         
     }
@@ -96,6 +121,126 @@
     
     
     
+}
+
+- (void) QueryAllMusic
+{
+    MPMediaQuery *everything = [[MPMediaQuery alloc] init];
+    NSLog(@"Logging items from a generic query...");
+    NSArray *itemsFromGenericQuery = [everything items];
+    NSLog(@"count = %lu", (unsigned long)itemsFromGenericQuery.count);
+    for (MPMediaItem *song in itemsFromGenericQuery)
+    {
+        NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
+        NSString *songArtist = [song valueForProperty:MPMediaItemPropertyArtist];
+        NSLog (@"Title:%@, Aritist:%@", songTitle, songArtist);
+    }
+    
+    //将读到的好本地音乐文件, 拷贝?到本app沙盒内
+    for (NSInteger i = 0 ;  i < 2; i ++) { //TODO:先测试2个
+        
+        if ([itemsFromGenericQuery[i] isKindOfClass:[MPMediaItem class]]) {
+            MPMediaItem *item = itemsFromGenericQuery[i];
+            [self convertToMp3:item];
+            
+        }
+
+    }
+    
+}
+
+- (void) convertToMp3: (MPMediaItem *)song
+{
+    NSURL *url = [song valueForProperty:MPMediaItemPropertyAssetURL];
+    
+    AVURLAsset *songAsset = [AVURLAsset URLAssetWithURL:url options:nil];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [dirs objectAtIndex:0];
+    
+    NSLog (@"compatible presets for songAsset: %@",[AVAssetExportSession exportPresetsCompatibleWithAsset:songAsset]);
+    
+    NSArray *ar = [AVAssetExportSession exportPresetsCompatibleWithAsset: songAsset];
+    NSLog(@"%@", ar);
+    
+    AVAssetExportSession *exporter = [[AVAssetExportSession alloc]
+                                      initWithAsset: songAsset
+                                      presetName: AVAssetExportPresetAppleM4A];
+    
+    NSLog (@"created exporter. supportedFileTypes: %@", exporter.supportedFileTypes);
+    
+    exporter.outputFileType = @"com.apple.m4a-audio";
+    
+    NSString *exportFilePath = [documentsDirectoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.m4a",[song valueForProperty:MPMediaItemPropertyTitle]]];
+    
+    NSError *error1;
+    
+    if([fileManager fileExistsAtPath:exportFilePath])
+    {
+        [fileManager removeItemAtPath:exportFilePath error:&error1];
+    }
+    
+    NSURL* exportURL = [NSURL fileURLWithPath:exportFilePath] ;
+    
+    exporter.outputURL = exportURL;
+    
+    // do the export
+    [exporter exportAsynchronouslyWithCompletionHandler:^
+     {
+         NSData *data1 = [NSData dataWithContentsOfFile:exportFilePath];
+         //NSLog(@"==================data1:%@",data1);
+         
+         int exportStatus = exporter.status;
+         
+         switch (exportStatus) {
+                 
+             case AVAssetExportSessionStatusFailed: {
+                 
+                 // log error to text view
+                 NSError *exportError = exporter.error;
+                 
+                 NSLog (@"AVAssetExportSessionStatusFailed: %@", exportError);
+                 
+                 
+                 
+                 break;
+             }
+                 
+             case AVAssetExportSessionStatusCompleted: {
+                 
+                 NSLog (@"AVAssetExportSessionStatusCompleted");
+                 [self.m4aMusicSourceList addObject:exporter];
+                 
+                 break;
+             }
+                 
+             case AVAssetExportSessionStatusUnknown: {
+                 NSLog (@"AVAssetExportSessionStatusUnknown");
+                 break;
+             }
+             case AVAssetExportSessionStatusExporting: {
+                 NSLog (@"AVAssetExportSessionStatusExporting");
+                 break;
+             }
+                 
+             case AVAssetExportSessionStatusCancelled: {
+                 NSLog (@"AVAssetExportSessionStatusCancelled");
+                 break;
+             }
+                 
+             case AVAssetExportSessionStatusWaiting: {
+                 NSLog (@"AVAssetExportSessionStatusWaiting");
+                 break;
+             }
+                 
+             default:
+             { NSLog (@"didn't get export status");
+                 break;
+             }
+         }
+         
+     }];
 }
 
 
@@ -187,11 +332,8 @@
         }
         
     } else {
-        _timeLabel1.text = [MusicHelper currentTime];
         
-        _timeLabel2.text = [MusicHelper duration];
-        
-        NSLog(@"进度条: %f", MusicHelper.currentProgressValue);
+        //NSLog(@"进度条: %f", MusicHelper.currentProgressValue);
         
         _theProgressView.value = MusicHelper.currentProgressValue;
     }
@@ -248,6 +390,14 @@
         
     }
     return _theChecker1;
+}
+
+-(NSMutableArray *)m4aMusicSourceList{
+    if (!_m4aMusicSourceList) {
+        _m4aMusicSourceList = [NSMutableArray array];
+        
+    }
+    return _m4aMusicSourceList;
 }
 
 

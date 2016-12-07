@@ -14,18 +14,19 @@
 
 +(WWMusicHelper *)sharedHelper ;
 
+@property(nonatomic,assign) CGFloat currentProgressValue;
+
+@property(nonatomic,assign) NSInteger numberOfLoops;
+
+
 -(void)prepareToPlayMusic;
 -(void)play;
 - (BOOL)playAtSliderValue:(CGFloat)value;
+-(void)playMusicAtPath:(NSURL *)musicURL;   //播放指定路径下的URL
 
 -(void)pause;
 -(void)stop;
 
 -(NSString *)currentTime;
 -(NSString *)duration;
-
-@property(nonatomic,assign) CGFloat currentProgressValue;
-
-@property(nonatomic,assign) NSInteger numberOfLoops;
-
 @end

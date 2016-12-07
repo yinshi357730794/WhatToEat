@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0aw-eE-L36">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="N8H-aX-SeT">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,21 +12,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="5BM-hr-bR8">
+        <!--Item-->
+        <scene sceneID="M27-VD-Uy9">
             <objects>
-                <navigationController id="0aw-eE-L36" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="89X-3d-PQh">
+                <navigationController id="H8B-M2-MBo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="BGe-yO-ZQH"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ybK-Q6-zJX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="N8H-aX-SeT" kind="relationship" relationship="rootViewController" id="LNk-up-K0b"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SiT-Q6-9Kv"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IYw-cZ-Eu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ath-Th-zi0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1228" y="870"/>
+            <point key="canvasLocation" x="-225" y="342"/>
         </scene>
         <!--吃什么?-->
         <scene sceneID="tne-QT-ifu">
@@ -41,7 +42,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAf-7Z-SMi">
-                                <rect key="frame" x="16" y="108" width="288" height="120"/>
+                                <rect key="frame" x="16" y="64" width="288" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="早餐吃得像皇帝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOJ-J8-3fi">
                                         <rect key="frame" x="83.5" y="75.5" width="121.5" height="20.5"/>
@@ -66,7 +67,7 @@
                                 </constraints>
                             </view>
                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0TM-xc-T4O">
-                                <rect key="frame" x="16" y="238" width="288" height="120"/>
+                                <rect key="frame" x="16" y="194" width="288" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="午餐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vv9-Bi-iXZ">
                                         <rect key="frame" x="126.5" y="50" width="35" height="20.5"/>
@@ -90,7 +91,7 @@
                                 </constraints>
                             </view>
                             <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4q-bl-q5w">
-                                <rect key="frame" x="16" y="368" width="288" height="120"/>
+                                <rect key="frame" x="16" y="324" width="288" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="晚餐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDZ-X5-AGC">
                                         <rect key="frame" x="126.5" y="50" width="35" height="20.5"/>
@@ -155,14 +156,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="JkZ-WL-90i"/>
                         <segue destination="qKY-H7-KjA" kind="relationship" relationship="viewControllers" id="rd4-3Z-INT"/>
-                        <segue destination="M6N-d9-mwV" kind="relationship" relationship="viewControllers" id="m8r-hZ-bnq"/>
+                        <segue destination="ycQ-xX-OXq" kind="relationship" relationship="viewControllers" id="lDw-R9-Klt"/>
+                        <segue destination="H8B-M2-MBo" kind="relationship" relationship="viewControllers" id="4Kr-k0-YRx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aEk-89-37h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-334" y="871"/>
+            <point key="canvasLocation" x="-1489" y="1368"/>
         </scene>
         <!--我的-->
         <scene sceneID="7nr-3T-EQ6">
@@ -229,7 +230,24 @@
             </objects>
             <point key="canvasLocation" x="534" y="1194"/>
         </scene>
-        <!--Item-->
+        <!--冥想练习-->
+        <scene sceneID="p2z-Im-FQH">
+            <objects>
+                <navigationController id="ycQ-xX-OXq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="冥想练习" id="dl1-nS-oqz"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dgl-yN-3r6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="M6N-d9-mwV" kind="relationship" relationship="rootViewController" id="hnU-Vx-8Mq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HFf-32-Iky" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-225" y="1956"/>
+        </scene>
+        <!--Title-->
         <scene sceneID="R7T-df-aWy">
             <objects>
                 <viewController id="M6N-d9-mwV" customClass="WWMusicPlayVC" sceneMemberID="viewController">
@@ -386,7 +404,14 @@
                             <constraint firstItem="weu-lD-3J4" firstAttribute="top" secondItem="RN2-gU-76P" secondAttribute="bottom" constant="10" id="yOj-OX-tFf"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Hic-SL-uMd"/>
+                    <tabBarItem key="tabBarItem" title="冥想练习" id="Hic-SL-uMd"/>
+                    <navigationItem key="navigationItem" title="Title" id="mJl-AC-xxN">
+                        <barButtonItem key="rightBarButtonItem" title="资料库" id="C7i-nO-yav">
+                            <connections>
+                                <segue destination="HHg-Qr-c9f" kind="show" identifier="show_tab3_1" id="P1B-XU-c8M"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="autoStopView" destination="weu-lD-3J4" id="G24-5T-oVJ"/>
                         <outlet property="countDownTimeLabel" destination="agE-kD-BZS" id="f0J-mY-JhE"/>
@@ -402,6 +427,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBy-Sz-Q1G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="532.5" y="1956.338028169014"/>
+        </scene>
+        <!--Audio LibraryVC-->
+        <scene sceneID="emP-tP-6B1">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="HHg-Qr-c9f" customClass="WWAudioLibraryVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ffj-Rn-gLr"/>
+                        <viewControllerLayoutGuide type="bottom" id="R7O-uM-kZO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jQA-hj-YHA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ckj-zo-8mF">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HHg-Qr-c9f" id="94s-sW-E0T"/>
+                                    <outlet property="delegate" destination="HHg-Qr-c9f" id="0bY-Ep-UHw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ckj-zo-8mF" secondAttribute="trailing" id="EwQ-rW-7W6"/>
+                            <constraint firstItem="Ckj-zo-8mF" firstAttribute="top" secondItem="ffj-Rn-gLr" secondAttribute="bottom" id="GYm-F9-sR3"/>
+                            <constraint firstItem="R7O-uM-kZO" firstAttribute="top" secondItem="Ckj-zo-8mF" secondAttribute="bottom" id="Lhi-8i-1v0"/>
+                            <constraint firstItem="Ckj-zo-8mF" firstAttribute="leading" secondItem="jQA-hj-YHA" secondAttribute="leading" id="g3H-h1-AYJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Ckj-zo-8mF" id="rXo-nt-iJi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kh8-aN-YiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1328" y="1956"/>
         </scene>
         <!--RollVC-->
         <scene sceneID="JFi-AI-5uP">
@@ -436,7 +498,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FOv-ly-WQZ">
-                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wIq-LZ-vsT">
                                     <size key="itemSize" width="90" height="120"/>
@@ -519,7 +581,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="Ghx-Yv-pUf">
-                                        <rect key="frame" x="12.5" y="12.5" width="90" height="120"/>
+                                        <rect key="frame" x="13" y="13" width="90" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
@@ -624,7 +686,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_def" translatesAutoresizingMaskIntoConstraints="NO" id="Csa-AZ-gG2">
-                                <rect key="frame" x="0.0" y="108" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="320"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Csa-AZ-gG2" secondAttribute="height" multiplier="1:1" id="JIo-wy-Twg"/>
                                 </constraints>
@@ -661,7 +723,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NxI-cN-cPr">
-                                <rect key="frame" x="0.0" y="119" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="75" width="320" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_ oatmeal" translatesAutoresizingMaskIntoConstraints="NO" id="sPh-Ly-iQW">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
@@ -686,7 +748,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKq-AG-IFb">
-                                <rect key="frame" x="0.0" y="239" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="195" width="320" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_ oatmeal" translatesAutoresizingMaskIntoConstraints="NO" id="1bS-wz-mYH">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
@@ -711,7 +773,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJA-u4-AhY">
-                                <rect key="frame" x="0.0" y="359" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="315" width="320" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_ oatmeal" translatesAutoresizingMaskIntoConstraints="NO" id="fcS-UK-pXi">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
@@ -766,6 +828,6 @@
         <image name="msc_play_sel" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="81p-9V-qKl"/>
+        <segue reference="ibg-lE-EaG"/>
     </inferredMetricsTieBreakers>
 </document>
