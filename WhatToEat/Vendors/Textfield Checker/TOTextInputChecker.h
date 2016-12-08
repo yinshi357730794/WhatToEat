@@ -50,7 +50,7 @@ typedef void(^TFdidEndEditing)(NSString* theContent);
 
 /**
  *    @brief    判断是否达到最大值
- *    @param    YES:达到最大值 NO:没有达到
+ *    @param    isMax 返回YES说明达到最大值 NO:没有达到
  */
 typedef void(^TFContentAchieveMax)(BOOL isMax);
 @property(nonatomic,copy) TFContentAchieveMax theCheckMaxBlock;

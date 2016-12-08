@@ -28,4 +28,20 @@
     
 }
 
+-(NSString *)convertUTF8StringToPercentString{
+    
+    //把汉字转成百分号字符:
+    NSString *charactersToEscape = @"?!@#$^&%*+,:;='\"`<>()[]{}/\\| ";
+    NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersToEscape] invertedSet];
+    NSString *encodedString = [self stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters];
+    
+    return encodedString;
+
+}
+
+-(NSString *)convertPercentStringToUTF8String{
+    return  self.stringByRemovingPercentEncoding;
+
+}
+
 @end

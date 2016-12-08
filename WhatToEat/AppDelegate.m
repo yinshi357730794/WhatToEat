@@ -59,6 +59,10 @@
         //设置:默认的大图模式
         CRUserSetBOOL(YES, @"UDFavouriteListMode");
         
+        
+        //扫描所有媒体资料库
+        [AppManager QueryAllMusic];
+        
     }
     
     return YES;

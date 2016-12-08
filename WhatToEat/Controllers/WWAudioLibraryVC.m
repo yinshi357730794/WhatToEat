@@ -95,8 +95,7 @@
     NSString *transString = nameWithoutDotFormat.stringByRemovingPercentEncoding;
     cell.textLabel.text = transString;
     */
-    NSString *transString = nameWithoutDotFormat.stringByRemovingPercentEncoding;
-
+    
     
     NSString *name = _musicNameList[indexPath.row];
     //过滤掉后缀".m4a"
@@ -110,13 +109,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    //AVAssetExportSession *exportor = self.dataSource[indexPath.row];
-    
     NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectoryPath = [dirs objectAtIndex:0];
+    NSString *musicName = _musicNameList[indexPath.row];
     
-    NSString *musicFileAbsolutePath = [documentsDirectoryPath stringByAppendingPathComponent:_musicNameList[indexPath.row]];
-
+    //在实际的目录中, 中文字符是百分号字符, 这里要转一下
+    NSString *musicFileAbsolutePath = [documentsDirectoryPath stringByAppendingPathComponent:[musicName convertUTF8StringToPercentString]];
     
     
     [MusicHelper playMusicAtPath:[NSURL URLWithString:musicFileAbsolutePath]];

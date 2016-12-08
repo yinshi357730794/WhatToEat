@@ -23,6 +23,7 @@
 		2442600B1DC73E66004364F2 /* WWDinnerFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 2442600A1DC73E66004364F2 /* WWDinnerFood.m */; };
 		24540A121DD026FE0048B9F2 /* YSLabelList.m in Sources */ = {isa = PBXBuildFile; fileRef = 24540A111DD026FE0048B9F2 /* YSLabelList.m */; };
 		24540A141DD0270A0048B9F2 /* YSLabelList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24540A131DD0270A0048B9F2 /* YSLabelList.xib */; };
+		245E3CE61DF95C2900865E06 /* WWAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 245E3CE51DF95C2900865E06 /* WWAppManager.m */; };
 		249D8A8A1DBDDD15007499A8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 249D8A891DBDDD15007499A8 /* main.m */; };
 		249D8A8D1DBDDD15007499A8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 249D8A8C1DBDDD15007499A8 /* AppDelegate.m */; };
 		249D8A931DBDDD15007499A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 249D8A911DBDDD15007499A8 /* Main.storyboard */; };
@@ -87,6 +88,8 @@
 		24540A101DD026FE0048B9F2 /* YSLabelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLabelList.h; sourceTree = "<group>"; };
 		24540A111DD026FE0048B9F2 /* YSLabelList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLabelList.m; sourceTree = "<group>"; };
 		24540A131DD0270A0048B9F2 /* YSLabelList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YSLabelList.xib; sourceTree = "<group>"; };
+		245E3CE41DF95C2900865E06 /* WWAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWAppManager.h; sourceTree = "<group>"; };
+		245E3CE51DF95C2900865E06 /* WWAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWAppManager.m; sourceTree = "<group>"; };
 		249D8A851DBDDD15007499A8 /* WhatToEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatToEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		249D8A891DBDDD15007499A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		249D8A8B1DBDDD15007499A8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 				24D4CFA61DC9B7360021EF31 /* GeneralDefines.h */,
 				24CF2BF61DBF4DE5005A3640 /* UIFactory.h */,
 				24CF2BF71DBF4DE5005A3640 /* UIFactory.m */,
+				245E3CE41DF95C2900865E06 /* WWAppManager.h */,
+				245E3CE51DF95C2900865E06 /* WWAppManager.m */,
 				24D4CF891DC98F780021EF31 /* WWHelper.h */,
 				24D4CF8A1DC98F780021EF31 /* WWHelper.m */,
 				24CCAD571DE6C3EE00780CD4 /* WWMusicHelper.h */,
@@ -563,6 +568,7 @@
 				244260001DC34C1B004364F2 /* WWMealModel.m in Sources */,
 				249D8A8A1DBDDD15007499A8 /* main.m in Sources */,
 				24D4CFCA1DC9DEDE0021EF31 /* CollectionViewCell.m in Sources */,
+				245E3CE61DF95C2900865E06 /* WWAppManager.m in Sources */,
 				24CF2BF51DBF2785005A3640 /* WWFoodBaseModel.m in Sources */,
 				2442600B1DC73E66004364F2 /* WWDinnerFood.m in Sources */,
 				241933691DD2C7FF00AED9E0 /* AddMyFvrtFoodVC.m in Sources */,

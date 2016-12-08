@@ -15,6 +15,10 @@
 +(NSString *)stringWithTimeInterval:(NSTimeInterval)timeInterval;
 
 
+//UTF8转百分号字符
+-(NSString *)convertUTF8StringToPercentString;
+//上述过程反过来
+-(NSString *)convertPercentStringToUTF8String;
 
 
 

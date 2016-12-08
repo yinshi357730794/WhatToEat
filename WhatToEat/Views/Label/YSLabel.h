@@ -11,8 +11,6 @@
 
 /**
  *    @brief    可以实现文字从左上角开始显示的特性
- *    @param     
- *    @return
  */
 @interface YSLabel : UILabel
 

@@ -24,5 +24,6 @@
 
 #import "WWHelper.h"
 #import "WWMusicHelper.h"
+#import "WWAppManager.h"
 
 #endif /* ToolsHeader_h */

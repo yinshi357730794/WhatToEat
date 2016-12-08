@@ -47,7 +47,7 @@ typedef NS_ENUM(NSUInteger, WWDinnerFoodType) {  //正餐(午餐/晚餐)食物�
 
 @property(nonatomic,copy)NSString *theFoodName;     //食物真实的名字
 @property(nonatomic,copy)NSString *theFoodNickName; //自己起的事物的昵称
-@property(nonatomic) UIImage *theFoodImage;
+@property(nonatomic,strong) UIImage *theFoodImage;
 @property(nonatomic) WWMealType theMeal;                //该食物是属于哪顿饭的?
 
 @property(nonatomic,copy) NSArray * foodTypeArray;   //食物类型数组 @{@"小吃",@"肉类"}

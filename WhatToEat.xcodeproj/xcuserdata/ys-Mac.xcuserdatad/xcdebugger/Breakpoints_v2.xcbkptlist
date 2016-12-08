@@ -420,11 +420,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Controllers/WWMusicPlayVC.m"
-            timestampString = "502795619.458325"
+            timestampString = "502881070.935376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "-progressViewValueChanged:"
             landmarkType = "7">
          </BreakpointContent>
@@ -452,11 +452,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Controllers/WWMusicPlayVC.m"
-            timestampString = "502795619.458325"
+            timestampString = "502881070.935376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "389"
-            endingLineNumber = "389"
+            startingLineNumber = "393"
+            endingLineNumber = "393"
             landmarkName = "-theChecker1"
             landmarkType = "7">
          </BreakpointContent>
@@ -468,11 +468,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Controllers/WWMusicPlayVC.m"
-            timestampString = "502795619.458325"
+            timestampString = "502881070.935376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
             landmarkName = "-theChecker1"
             landmarkType = "7">
          </BreakpointContent>
@@ -484,11 +484,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Controllers/WWMusicPlayVC.m"
-            timestampString = "502795619.458325"
+            timestampString = "502881070.935376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
             landmarkName = "-startCountDown:"
             landmarkType = "7">
          </BreakpointContent>
@@ -500,11 +500,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Controllers/WWMusicPlayVC.m"
-            timestampString = "502795619.458325"
+            timestampString = "502881070.935376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
             landmarkName = "-startCountDown:"
             landmarkType = "7">
          </BreakpointContent>
@@ -564,11 +564,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Controllers/WWMusicPlayVC.m"
-            timestampString = "502795619.458325"
+            timestampString = "502881070.935376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "333"
-            endingLineNumber = "333"
+            startingLineNumber = "337"
+            endingLineNumber = "337"
             landmarkName = "-updateTimeLabel"
             landmarkType = "7">
          </BreakpointContent>
@@ -580,11 +580,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Controllers/WWMusicPlayVC.m"
-            timestampString = "502795619.458325"
+            timestampString = "502881070.935376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "-sliderTouched:"
             landmarkType = "7">
          </BreakpointContent>
@@ -596,11 +596,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Controllers/WWMusicPlayVC.m"
-            timestampString = "502795619.458325"
+            timestampString = "502881070.935376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "-convertToMp3:"
             landmarkType = "7">
          </BreakpointContent>
@@ -612,11 +612,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Controllers/WWMusicPlayVC.m"
-            timestampString = "502795619.458325"
+            timestampString = "502881070.935376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "-convertToMp3:"
             landmarkType = "7">
          </BreakpointContent>
@@ -672,15 +672,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Controllers/WWAudioLibraryVC.m"
-            timestampString = "502794964.823141"
+            timestampString = "502879790.779536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -688,7 +688,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Tools/WWMusicHelper.m"

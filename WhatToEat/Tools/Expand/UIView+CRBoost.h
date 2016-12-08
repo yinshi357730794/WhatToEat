@@ -82,7 +82,7 @@ typedef void (^KeyboardStateTask)(CGRect rect);
 /**
  * add a top banner to the view, same width as self
  *
- * @param height: the height of the top banner
+ * @param height the height of the top banner
  * @discussion be careful when use this method, the top banner should be at the bottom of the view hierarchy
  */
 - (void)setupTopBannerColored:(UIColor *)color height:(CGFloat)height;

@@ -99,7 +99,6 @@
             }
             
             [MusicHelper play];
-            [self QueryAllMusic];
             
         }else{
             //暂停Timer
@@ -123,31 +122,6 @@
     
 }
 
-- (void) QueryAllMusic
-{
-    MPMediaQuery *everything = [[MPMediaQuery alloc] init];
-    NSLog(@"Logging items from a generic query...");
-    NSArray *itemsFromGenericQuery = [everything items];
-    NSLog(@"count = %lu", (unsigned long)itemsFromGenericQuery.count);
-    for (MPMediaItem *song in itemsFromGenericQuery)
-    {
-        NSString *songTitle = [song valueForProperty: MPMediaItemPropertyTitle];
-        NSString *songArtist = [song valueForProperty:MPMediaItemPropertyArtist];
-        NSLog (@"Title:%@, Aritist:%@", songTitle, songArtist);
-    }
-    
-    //将读到的好本地音乐文件, 拷贝?到本app沙盒内
-    for (NSInteger i = 0 ;  i < 2; i ++) { //TODO:先测试2个
-        
-        if ([itemsFromGenericQuery[i] isKindOfClass:[MPMediaItem class]]) {
-            MPMediaItem *item = itemsFromGenericQuery[i];
-            [self convertToMp3:item];
-            
-        }
-
-    }
-    
-}
 
 - (void) convertToMp3: (MPMediaItem *)song
 {
