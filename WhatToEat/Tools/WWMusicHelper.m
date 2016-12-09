@@ -80,7 +80,7 @@
     //return  [_avAudioPlayer playAtTime:time];
 }
 
--(void)playMusicAtPath:(NSURL *)musicURL{
+-(BOOL)playMusicAtURL:(NSURL *)musicURL{
     if (_avAudioPlayer.isPlaying) {
         [_avAudioPlayer stop];
 
@@ -97,6 +97,14 @@
     
     [_avAudioPlayer play];
 
+    
+    if (_avAudioPlayer.isPlaying) {
+        return YES;
+    }else{
+        return NO;
+    }
+    
+    
 }
 
 -(void)pause{

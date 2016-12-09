@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 #define MusicHelper [WWMusicHelper sharedHelper]
 
 
@@ -18,15 +19,19 @@
 
 @property(nonatomic,assign) NSInteger numberOfLoops;
 
+@property(nonatomic,strong) MPMediaItem *theSongBeingPlayed;    //正在播放的那一首歌
 
--(void)prepareToPlayMusic;
--(void)play;
+
+- (void)prepareToPlayMusic;
+- (void)play;
 - (BOOL)playAtSliderValue:(CGFloat)value;
--(void)playMusicAtPath:(NSURL *)musicURL;   //播放指定路径下的URL
+- (BOOL)playMusicAtURL:(NSURL *)musicURL;   //播放指定路径下的URL
 
 -(void)pause;
 -(void)stop;
 
 -(NSString *)currentTime;
 -(NSString *)duration;
+
+
 @end

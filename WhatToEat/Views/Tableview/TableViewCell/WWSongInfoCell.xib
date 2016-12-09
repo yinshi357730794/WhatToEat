@@ -20,7 +20,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9U-CK-Z0H">
                         <rect key="frame" x="0.0" y="5" width="5" height="39.5"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="5" id="yif-od-xQu"/>
                         </constraints>
@@ -37,13 +37,13 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ges-I7-qoe">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ges-I7-qoe">
                         <rect key="frame" x="280" y="-1" width="40" height="50"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="7lO-Xc-Z7K"/>
                             <constraint firstAttribute="width" constant="40" id="ahN-6g-joY"/>
                         </constraints>
-                        <state key="normal" title="• • •">
+                        <state key="normal" title="•••">
                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>

@@ -11,7 +11,6 @@
 @interface WWSongInfoCell ()
 
 @property (weak, nonatomic) IBOutlet UIView *leftIndicator;
-
 @property (weak, nonatomic) IBOutlet UILabel *theSongName;
 @property (weak, nonatomic) IBOutlet UILabel *theAdditionalInfo;
 
@@ -24,6 +23,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -35,12 +36,29 @@
 -(void)refreshCellWithSongInfo:(MPMediaItem *)song{
     self.theSongName.text = song.title;
     
-    self.theAdditionalInfo.text = song.artist;
+    NSString *artist = song.artist;
+    NSString *albumTitle = song.albumTitle;
+    self.theAdditionalInfo.text = [NSString stringWithFormat:@"%@ • %@",artist,albumTitle];
     
 
 }
 
+-(void)lightUp:(BOOL)isLightOn{
+    if (isLightOn) {
+        self.leftIndicator.backgroundColor = UIColorFromRGB(0xd81e06);
+
+    }else{
+        self.leftIndicator.backgroundColor = UIColorFromRGB(0xFFFFFF);
+    }
+}
+
 - (IBAction)btnPressed:(UIButton *)sender {
+    
+    if (self.moreBtnPressedBlock) {
+        self.moreBtnPressedBlock();
+    }
+    
+    
 }
 
 

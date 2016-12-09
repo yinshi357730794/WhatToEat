@@ -10,7 +10,6 @@
 #import "WWSongInfoCell.h"
 
 @interface WWAudioLibraryVC2 ()
-
 @end
 
 @implementation WWAudioLibraryVC2
@@ -45,14 +44,40 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WWSongInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WWSongInfoCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
+ 
+    [cell lightUp:NO];
     
     MPMediaItem *song = self.dataSource[indexPath.row];
+    
     [cell refreshCellWithSongInfo:song];
     
+    if ([song.title isEqualToString:MusicHelper.theSongBeingPlayed.title] &&
+        [song.albumTitle isEqualToString:MusicHelper.theSongBeingPlayed.albumTitle] &&
+        [song.artist isEqualToString:MusicHelper.theSongBeingPlayed.artist]) {
+        [cell lightUp: YES];
+    }
+    
+    cell.moreBtnPressedBlock = ^{
+        
+        YSAlertController *alert = [[YSAlertController alloc]init];
+        [alert showActionSheetOnVC:self title:song.title subTitle:nil dataSource:@[@"加入播放列表"] backgoundType:TranslucentBlack];
+        
+        
+    };
+ 
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    MPMediaItem *song = self.dataSource[indexPath.row];
+    
+    if ([MusicHelper playMusicAtURL:song.assetURL]) {
+        MusicHelper.theSongBeingPlayed = song;
+        [self.tableView reloadData];
+    }
+    
+    
 }
 
 
