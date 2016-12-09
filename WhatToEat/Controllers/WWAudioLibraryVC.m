@@ -8,13 +8,13 @@
 
 #import "WWAudioLibraryVC.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import "WWAudioLibraryVC2.h"
 
 @interface WWAudioLibraryVC () <UITableViewDataSource,UITableViewDelegate,AVAudioPlayerDelegate>
 @property(nonatomic)AVAudioPlayer *avAudioPlayer;
 @property(nonatomic)AVAssetExportSession *exportor;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property(nonatomic,copy)NSArray *musicNameList;
+@property(nonatomic,copy)NSArray *albumNameList;
 
 
 @end
@@ -25,6 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    /*
     for (NSInteger i = 0 ; i < self.dataSource.count; i ++) {
         _exportor = self.dataSource[i];
         
@@ -45,8 +46,10 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     // 首先读取那个目录下面原来就有的.mp3或者.m4a文件, 如果有, 那么闲读出来.
      _musicNameList = [fileManager contentsOfDirectoryAtPath:documentsDirectoryPath error:nil];
+    */
     
-    NSLog(@"%@",_musicNameList);
+    _albumNameList = AppManager.allMusicDict_classifiedByAlbum.allKeys;
+    NSLog(@"%@",_albumNameList);
     
    // NSURL* exportURL = [NSURL fileURLWithPath:nil] ;
     
@@ -75,7 +78,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _musicNameList.count;
+    return _albumNameList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -97,11 +100,12 @@
     */
     
     
-    NSString *name = _musicNameList[indexPath.row];
+    
+    NSString *name = _albumNameList[indexPath.row];
     //过滤掉后缀".m4a"
     NSString *realName = [name componentsSeparatedByString:@"."][0];
     
-    cell.textLabel.text = realName;
+    cell.textLabel.text = _albumNameList[indexPath.row];
     return cell;
     
 }
@@ -109,6 +113,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    /*
     NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectoryPath = [dirs objectAtIndex:0];
     NSString *musicName = _musicNameList[indexPath.row];
@@ -118,6 +123,19 @@
     
     
     [MusicHelper playMusicAtPath:[NSURL URLWithString:musicFileAbsolutePath]];
+    */
+    
+   NSString *albumName =  _albumNameList[indexPath.row];
+
+    
+    WWAudioLibraryVC2 *destTVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"WWAudioLibraryVC2"];
+    
+    destTVC.dataSource = AppManager.allMusicDict_classifiedByAlbum[albumName];
+    
+    [self.navigationController pushViewController:destTVC animated:YES];
+    
+    
+    
     
 }
 

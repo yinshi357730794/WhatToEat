@@ -42,7 +42,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAf-7Z-SMi">
-                                <rect key="frame" x="16" y="64" width="288" height="120"/>
+                                <rect key="frame" x="16" y="108" width="288" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="早餐吃得像皇帝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOJ-J8-3fi">
                                         <rect key="frame" x="83.5" y="75.5" width="121.5" height="20.5"/>
@@ -67,7 +67,7 @@
                                 </constraints>
                             </view>
                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0TM-xc-T4O">
-                                <rect key="frame" x="16" y="194" width="288" height="120"/>
+                                <rect key="frame" x="16" y="238" width="288" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="午餐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vv9-Bi-iXZ">
                                         <rect key="frame" x="126.5" y="50" width="35" height="20.5"/>
@@ -91,7 +91,7 @@
                                 </constraints>
                             </view>
                             <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4q-bl-q5w">
-                                <rect key="frame" x="16" y="324" width="288" height="120"/>
+                                <rect key="frame" x="16" y="368" width="288" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="晚餐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDZ-X5-AGC">
                                         <rect key="frame" x="126.5" y="50" width="35" height="20.5"/>
@@ -459,11 +459,40 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Ckj-zo-8mF" id="rXo-nt-iJi"/>
+                        <segue destination="T5u-Wy-Fmb" kind="show" id="ILH-XI-shD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kh8-aN-YiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1328" y="1956"/>
+        </scene>
+        <!--Audio LibraryVC2-->
+        <scene sceneID="JjU-b7-XbN">
+            <objects>
+                <tableViewController storyboardIdentifier="WWAudioLibraryVC2" id="T5u-Wy-Fmb" customClass="WWAudioLibraryVC2" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="TX6-ZJ-9CA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Gev-xi-jIw">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gev-xi-jIw" id="HKT-bS-NRs">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="T5u-Wy-Fmb" id="Qxb-0R-aHF"/>
+                            <outlet property="delegate" destination="T5u-Wy-Fmb" id="sXw-9O-Kj6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCj-ng-YZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2173" y="1946"/>
         </scene>
         <!--RollVC-->
         <scene sceneID="JFi-AI-5uP">
@@ -498,7 +527,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FOv-ly-WQZ">
-                                <rect key="frame" x="0.0" y="20" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wIq-LZ-vsT">
                                     <size key="itemSize" width="90" height="120"/>
@@ -581,7 +610,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="Ghx-Yv-pUf">
-                                        <rect key="frame" x="13" y="13" width="90" height="120"/>
+                                        <rect key="frame" x="12.5" y="12.5" width="90" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="120"/>
@@ -686,7 +715,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_def" translatesAutoresizingMaskIntoConstraints="NO" id="Csa-AZ-gG2">
-                                <rect key="frame" x="0.0" y="64" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="320"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Csa-AZ-gG2" secondAttribute="height" multiplier="1:1" id="JIo-wy-Twg"/>
                                 </constraints>
@@ -723,7 +752,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NxI-cN-cPr">
-                                <rect key="frame" x="0.0" y="75" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="119" width="320" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_ oatmeal" translatesAutoresizingMaskIntoConstraints="NO" id="sPh-Ly-iQW">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
@@ -748,7 +777,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKq-AG-IFb">
-                                <rect key="frame" x="0.0" y="195" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="239" width="320" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_ oatmeal" translatesAutoresizingMaskIntoConstraints="NO" id="1bS-wz-mYH">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
@@ -773,7 +802,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJA-u4-AhY">
-                                <rect key="frame" x="0.0" y="315" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="359" width="320" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food_ oatmeal" translatesAutoresizingMaskIntoConstraints="NO" id="fcS-UK-pXi">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>

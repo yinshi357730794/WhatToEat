@@ -15,5 +15,7 @@
 
 - (void) QueryAllMusic;
 
+@property(nonatomic,copy) NSDictionary *allMusicDict_classifiedByAlbum; //已经按专辑名称分类好的 所有歌曲
+
 
 @end
