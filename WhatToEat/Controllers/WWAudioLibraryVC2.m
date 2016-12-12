@@ -74,6 +74,9 @@
     
     if ([MusicHelper playMusicAtURL:song.assetURL]) {
         MusicHelper.theSongBeingPlayed = song;
+        [AppManager addSongsToCurrentPlayingList:self.dataSource];
+        
+        
         [self.tableView reloadData];
     }
     

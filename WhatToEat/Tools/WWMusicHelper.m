@@ -49,7 +49,7 @@
     
     //设置音乐播放次数  -1为一直循环,1为支循环1次
     _avAudioPlayer.numberOfLoops = 1;
-
+    
     //预播放
     [_avAudioPlayer prepareToPlay];
     

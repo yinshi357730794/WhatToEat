@@ -32,6 +32,8 @@
 		249D8AA71DBDE078007499A8 /* UIView+CRBoost.m in Sources */ = {isa = PBXBuildFile; fileRef = 249D8AA61DBDE078007499A8 /* UIView+CRBoost.m */; };
 		249D8AB21DBDFA11007499A8 /* NSArray+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 249D8AB11DBDFA11007499A8 /* NSArray+Expand.m */; };
 		249D8AB51DBE019B007499A8 /* NSString+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 249D8AB41DBE019B007499A8 /* NSString+Expand.m */; };
+		24A2D8E91DFE9FFD007B10DA /* CurrentPlayingList.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A2D8E81DFE9FFD007B10DA /* CurrentPlayingList.m */; };
+		24A2D8EB1DFEA010007B10DA /* CurrentPlayingList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A2D8EA1DFEA010007B10DA /* CurrentPlayingList.xib */; };
 		24B998831DFA507600CAA41F /* WWAudioLibraryVC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B998821DFA507600CAA41F /* WWAudioLibraryVC2.m */; };
 		24B998871DFA51D800CAA41F /* WWSongInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B998851DFA51D800CAA41F /* WWSongInfoCell.m */; };
 		24B998881DFA51D800CAA41F /* WWSongInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24B998861DFA51D800CAA41F /* WWSongInfoCell.xib */; };
@@ -109,6 +111,9 @@
 		249D8AB11DBDFA11007499A8 /* NSArray+Expand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Expand.m"; sourceTree = "<group>"; };
 		249D8AB31DBE019B007499A8 /* NSString+Expand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Expand.h"; sourceTree = "<group>"; };
 		249D8AB41DBE019B007499A8 /* NSString+Expand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Expand.m"; sourceTree = "<group>"; };
+		24A2D8E71DFE9FFD007B10DA /* CurrentPlayingList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentPlayingList.h; path = WhatToEat/Views/CustomViews/CurrentPlayingList/CurrentPlayingList.h; sourceTree = SOURCE_ROOT; };
+		24A2D8E81DFE9FFD007B10DA /* CurrentPlayingList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentPlayingList.m; path = WhatToEat/Views/CustomViews/CurrentPlayingList/CurrentPlayingList.m; sourceTree = SOURCE_ROOT; };
+		24A2D8EA1DFEA010007B10DA /* CurrentPlayingList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CurrentPlayingList.xib; sourceTree = "<group>"; };
 		24B998811DFA507600CAA41F /* WWAudioLibraryVC2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWAudioLibraryVC2.h; sourceTree = "<group>"; };
 		24B998821DFA507600CAA41F /* WWAudioLibraryVC2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWAudioLibraryVC2.m; sourceTree = "<group>"; };
 		24B998841DFA51D800CAA41F /* WWSongInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWSongInfoCell.h; sourceTree = "<group>"; };
@@ -207,6 +212,7 @@
 		24540A0E1DD026FE0048B9F2 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				24A2D8E61DFE9FB0007B10DA /* CurrentPlayingList */,
 				24CCAD611DE6CB9600780CD4 /* YSMusicProgressView */,
 				24540A0F1DD026FE0048B9F2 /* YSLabelList */,
 			);
@@ -299,6 +305,17 @@
 				249D8AB41DBE019B007499A8 /* NSString+Expand.m */,
 			);
 			path = Expand;
+			sourceTree = "<group>";
+		};
+		24A2D8E61DFE9FB0007B10DA /* CurrentPlayingList */ = {
+			isa = PBXGroup;
+			children = (
+				24A2D8E71DFE9FFD007B10DA /* CurrentPlayingList.h */,
+				24A2D8E81DFE9FFD007B10DA /* CurrentPlayingList.m */,
+				24A2D8EA1DFEA010007B10DA /* CurrentPlayingList.xib */,
+			);
+			name = CurrentPlayingList;
+			path = currentPlayingList;
 			sourceTree = "<group>";
 		};
 		24CCAD5D1DE6C59100780CD4 /* Resources */ = {
@@ -547,6 +564,7 @@
 				249D8A951DBDDD15007499A8 /* Assets.xcassets in Resources */,
 				24B998881DFA51D800CAA41F /* WWSongInfoCell.xib in Resources */,
 				24540A141DD0270A0048B9F2 /* YSLabelList.xib in Resources */,
+				24A2D8EB1DFEA010007B10DA /* CurrentPlayingList.xib in Resources */,
 				2419335F1DD2BF0800AED9E0 /* WWCellWithContentLabel.xib in Resources */,
 				241933551DD2BCB800AED9E0 /* WWCellWithRightImage.xib in Resources */,
 				24D4CFCB1DC9DEDE0021EF31 /* CollectionViewCell.xib in Resources */,
@@ -598,6 +616,7 @@
 				2419336C1DD2C7FF00AED9E0 /* WWFoodListVC.m in Sources */,
 				2419336A1DD2C7FF00AED9E0 /* MainViewController.m in Sources */,
 				24CF2BF81DBF4DE5005A3640 /* UIFactory.m in Sources */,
+				24A2D8E91DFE9FFD007B10DA /* CurrentPlayingList.m in Sources */,
 				249D8AB21DBDFA11007499A8 /* NSArray+Expand.m in Sources */,
 				24E3F8541DE7D8DC009F1CDC /* TOTextInputChecker.m in Sources */,
 				24CCAD591DE6C3EE00780CD4 /* WWMusicHelper.m in Sources */,

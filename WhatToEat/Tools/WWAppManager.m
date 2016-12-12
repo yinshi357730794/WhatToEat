@@ -97,4 +97,61 @@
 }
 
 
+
+-(void)addSongsToCurrentPlayingList:(NSArray *)newSongs{
+    
+    if (!_currentPlayingList) {
+        _currentPlayingList = [NSArray arrayWithArray:newSongs];
+        
+    } else {
+        NSMutableArray *tempArray = _currentPlayingList.mutableCopy;
+        [tempArray addObjectsFromArray:newSongs];
+        _currentPlayingList = tempArray;
+        
+    }
+    
+    
+}
+
+-(void)deleteSongsFromCurrentPlayingList:(NSArray *)songsToDelete{
+    if (!_currentPlayingList) {
+        return;
+    } else {
+        NSMutableArray *tempArray = _currentPlayingList.mutableCopy;
+        [tempArray removeObjectsInArray:songsToDelete];
+        _currentPlayingList = tempArray;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end

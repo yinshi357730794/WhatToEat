@@ -14,6 +14,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import "WWAudioLibraryVC.h"
+#import "CurrentPlayingList.h"
+
 
 @interface WWMusicPlayVC ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel1;
@@ -115,7 +117,28 @@
             
         }
         
+    }else if (sender.tag == 103){
+       
+        CurrentPlayingList *theCustomView = [[NSBundle mainBundle]loadNibNamed:@"CurrentPlayingList" owner:self options:nil][0];
+        //theCustomView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+        [self.view addSubview:theCustomView];
+        
+        [theCustomView show];
+        
+//        
+//        [UIView animateWithDuration:0.5 animations:^{
+//            theCustomView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+//            [self.view layoutIfNeeded];
+//            
+//        } completion:^(BOOL finished) {
+//            NSLog(@" animation completed");
+//        }];
+//        
+//     
+    
     }
+
     
     
     

@@ -17,5 +17,11 @@
 
 @property(nonatomic,copy) NSDictionary *allMusicDict_classifiedByAlbum; //已经按专辑名称分类好的 所有歌曲
 
+@property(nonatomic,copy,readonly) NSArray *currentPlayingList;   //当前播放列表
+
+-(void)addSongsToCurrentPlayingList:(NSArray *)newSongs;
+-(void)deleteSongsFromCurrentPlayingList:(NSArray *)songsToDelete;
+
+
 
 @end
