@@ -33,6 +33,7 @@ typedef NSView UIView;
 
 #ifdef CR_iOS
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 #else
 #import <Cocoa/Cocoa.h>
 #import <AppKit/AppKit.h>

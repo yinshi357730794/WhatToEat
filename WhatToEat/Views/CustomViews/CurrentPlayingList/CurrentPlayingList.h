@@ -11,7 +11,7 @@
 @interface CurrentPlayingList : UIView
 
 
--(void)show;
+-(void)showWithDataSource:(NSArray *)dataSource;
 
 
 @end

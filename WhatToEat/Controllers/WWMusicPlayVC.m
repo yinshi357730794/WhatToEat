@@ -122,9 +122,9 @@
         CurrentPlayingList *theCustomView = [[NSBundle mainBundle]loadNibNamed:@"CurrentPlayingList" owner:self options:nil][0];
         //theCustomView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-        [self.view addSubview:theCustomView];
+        [AppRootWindow addSubview:theCustomView];
         
-        [theCustomView show];
+        [theCustomView showWithDataSource:AppManager.currentPlayingList];
         
 //        
 //        [UIView animateWithDuration:0.5 animations:^{
