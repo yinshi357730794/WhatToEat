@@ -8,7 +8,7 @@
 
 #import "CurrentPlayingList.h"
 #import "WWSongInPlayingListCell.h"
-@interface CurrentPlayingList () <UITableViewDataSource>
+@interface CurrentPlayingList () <UITableViewDataSource,UITableViewDelegate>
 //===================UI=====================
 
 @property (weak, nonatomic) IBOutlet UIView *theBgView;
@@ -24,9 +24,10 @@
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    [self.theBgView addTapRecognizer:self action:@selector(backgroundViewPressed)];
+    
     //_theContentBottomSpace.constant = -400;
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"WWSongInPlayingListCell" bundle:nil] forCellReuseIdentifier:@"WWSongInPlayingListCell"];
 }
 
@@ -34,14 +35,9 @@
 
 
 -(void)showWithDataSource:(NSArray *)dataSource{
+    
     self.tableViewDataSource = dataSource;
-    
     [self.tableView reloadData];
-    
-    
-    
-    
-    
     
     self.hidden = NO;
     
@@ -51,7 +47,13 @@
         [self layoutIfNeeded];
         
     } completion:^(BOOL finished) {
-        NSLog(@" animation completed");
+        NSLog(@" 播放列表已就位");
+        
+        UIView *topTranslucentBgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.theContentView.origin.y)];
+        [self addSubview:topTranslucentBgView];
+        
+        [topTranslucentBgView addTapRecognizer:self action:@selector(backgroundViewPressed)];
+        
     }];
     
 }
@@ -60,14 +62,13 @@
 -(void)backgroundViewPressed{
     
     
-    
     [UIView animateWithDuration:0.5 animations:^{
         self.theContentView.transform = CGAffineTransformMakeTranslation(0, 400);
         
         [self layoutIfNeeded];
         
     } completion:^(BOOL finished) {
-        NSLog(@" animation completed");
+        NSLog(@" animation completed - backgroundViewPressed");
         self.hidden = YES;
         
     }];
@@ -78,9 +79,6 @@
     return  self.tableViewDataSource.count;
 }
 
-// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     WWSongInPlayingListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WWSongInPlayingListCell" forIndexPath:indexPath];
@@ -88,11 +86,38 @@
     MPMediaItem *song = self.tableViewDataSource[indexPath.row];
     [cell refreshWithSongInfo:song];
     
+    if ([song.title isEqualToString:MusicHelper.theSongBeingPlayed.title] &&
+        [song.albumTitle isEqualToString:MusicHelper.theSongBeingPlayed.albumTitle] &&
+        [song.artist isEqualToString:MusicHelper.theSongBeingPlayed.artist]) {
+        
+        [cell lightUpInPlayingList: YES];
+    }else{
+        
+        [cell lightUpInPlayingList: NO];
+
+    }
+
     
     return cell;
-
+    
 }
 
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    NSLog(@"%d",indexPath.row);
+    
+    MPMediaItem *song = self.tableViewDataSource[indexPath.row];
+    
+    if ([MusicHelper playMusicAtURL:song.assetURL]) {
+        MusicHelper.theSongBeingPlayed = song;
+        [self.tableView reloadData];
+    }
+    
+    
+}
 
 
 

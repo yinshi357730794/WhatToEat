@@ -13,4 +13,6 @@
 
 -(void)refreshWithSongInfo:(MPMediaItem *)song;
 
+-(void)lightUpInPlayingList:(BOOL)isLightOn;
+
 @end

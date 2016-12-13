@@ -45,7 +45,7 @@
 
 -(void)lightUp:(BOOL)isLightOn{
     if (isLightOn) {
-        self.leftIndicator.backgroundColor = UIColorFromRGB(0xd81e06);
+        self.leftIndicator.backgroundColor = kDefaultRed;
 
     }else{
         self.leftIndicator.backgroundColor = UIColorFromRGB(0xFFFFFF);

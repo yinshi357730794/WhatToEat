@@ -14,6 +14,9 @@
 #define kDefaultBlueTxtColor CRRGBA(71, 138, 238, 1.0)  //蓝色文字 #478AEE
 #define kDefaultTranslucentBGColor CRRGBA(0, 0, 0, 0.6) // 黑色半透明背景颜色
 
+#define kDefaultRed  UIColorFromRGB(0xd81e06)     //App内默认的红色
+
+
 
 
 #endif /* GeneralDefines_h */

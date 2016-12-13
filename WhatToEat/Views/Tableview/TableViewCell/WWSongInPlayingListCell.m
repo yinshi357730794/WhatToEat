@@ -33,6 +33,17 @@
     
     self.leftLabel.text = song.title;
     
+}
+
+-(void)lightUpInPlayingList:(BOOL)isLightOn{
+    
+    if (isLightOn) {
+        self.leftLabel.textColor =  kDefaultRed;
+
+    }else{
+        self.leftLabel.textColor =  [UIColor blackColor];
+
+    }
     
     
 }

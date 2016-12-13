@@ -16,6 +16,11 @@
 #import "WWAudioLibraryVC.h"
 #import "CurrentPlayingList.h"
 
+//test
+#import "YSHeartView.h"
+
+NSInteger const heartWidth = 40;
+NSInteger const heartHeight = 40;
 
 @interface WWMusicPlayVC ()
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel1;
@@ -62,7 +67,21 @@
     _theTF1.delegate = self.theChecker1;
     
     
+    [self addHeartView];
     
+    
+}
+
+-(void)addHeartView{
+    YSHeartView *heartView = [[YSHeartView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - heartWidth)/2, (self.view.frame.size.height-heartHeight)/2, heartWidth, heartHeight)];
+    
+    heartView.rate = 0.5;
+    heartView.lineWidth = 2;
+    heartView.strokeColor = [UIColor lightGrayColor];
+    heartView.fillColor = [UIColor redColor];
+    heartView.changeStrokeColorWhenFillUp = YES;
+    heartView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:heartView];
 }
 
 - (void)didReceiveMemoryWarning {

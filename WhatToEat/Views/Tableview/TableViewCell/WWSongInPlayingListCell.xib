@@ -30,24 +30,24 @@
                             <constraint firstAttribute="height" constant="30" id="PPw-d1-2uP"/>
                             <constraint firstAttribute="width" constant="30" id="dWc-ZY-9cw"/>
                         </constraints>
-                        <state key="normal" image="msc_pause_sel"/>
+                        <state key="normal" image="msc_list_delete"/>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhc-Zn-lau">
-                        <rect key="frame" x="230" y="6" width="30" height="30"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wN-vG-UDb" customClass="YSHeartView">
+                        <rect key="frame" x="237" y="6" width="30" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="0tC-Yj-11s"/>
-                            <constraint firstAttribute="width" constant="30" id="h2F-tX-CJ3"/>
+                            <constraint firstAttribute="width" constant="30" id="dN9-Vf-9aS"/>
+                            <constraint firstAttribute="height" constant="30" id="tJf-ss-6va"/>
                         </constraints>
-                        <state key="normal" image="msc_pause_sel"/>
-                    </button>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Mhc-Zn-lau" firstAttribute="centerY" secondItem="cgi-iO-Av2" secondAttribute="centerY" id="0W9-gT-Z4T"/>
                     <constraint firstItem="elW-MN-3lx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="AyY-ME-BuA"/>
                     <constraint firstItem="elW-MN-3lx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HnJ-fK-mof"/>
-                    <constraint firstItem="cgi-iO-Av2" firstAttribute="leading" secondItem="Mhc-Zn-lau" secondAttribute="trailing" constant="15" id="SKK-Gj-66s"/>
                     <constraint firstAttribute="trailing" secondItem="cgi-iO-Av2" secondAttribute="trailing" constant="15" id="WqG-C3-rJW"/>
+                    <constraint firstItem="cgi-iO-Av2" firstAttribute="leading" secondItem="5wN-vG-UDb" secondAttribute="trailing" constant="8" id="XhE-Ig-ShM"/>
                     <constraint firstItem="cgi-iO-Av2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YoD-fl-Ib3"/>
+                    <constraint firstItem="5wN-vG-UDb" firstAttribute="centerY" secondItem="cgi-iO-Av2" secondAttribute="centerY" id="fkI-sr-nXT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -56,6 +56,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="msc_pause_sel" width="101" height="100"/>
+        <image name="msc_list_delete" width="100" height="100"/>
     </resources>
 </document>

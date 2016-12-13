@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		240DA2751DFF88D800BC99D9 /* WWSongInPlayingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 240DA2731DFF88D800BC99D9 /* WWSongInPlayingListCell.m */; };
 		240DA2761DFF88D800BC99D9 /* WWSongInPlayingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 240DA2741DFF88D800BC99D9 /* WWSongInPlayingListCell.xib */; };
+		240DA27A1DFFBED400BC99D9 /* YSHeartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 240DA2791DFFBED400BC99D9 /* YSHeartView.m */; };
 		241933541DD2BCB800AED9E0 /* WWCellWithRightImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 241933521DD2BCB800AED9E0 /* WWCellWithRightImage.m */; };
 		241933551DD2BCB800AED9E0 /* WWCellWithRightImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 241933531DD2BCB800AED9E0 /* WWCellWithRightImage.xib */; };
 		241933591DD2BE0C00AED9E0 /* WWCellWithRightLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 241933571DD2BE0C00AED9E0 /* WWCellWithRightLabel.m */; };
@@ -70,6 +71,8 @@
 		240DA2721DFF88D800BC99D9 /* WWSongInPlayingListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWSongInPlayingListCell.h; sourceTree = "<group>"; };
 		240DA2731DFF88D800BC99D9 /* WWSongInPlayingListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWSongInPlayingListCell.m; sourceTree = "<group>"; };
 		240DA2741DFF88D800BC99D9 /* WWSongInPlayingListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWSongInPlayingListCell.xib; sourceTree = "<group>"; };
+		240DA2781DFFBED400BC99D9 /* YSHeartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSHeartView.h; sourceTree = "<group>"; };
+		240DA2791DFFBED400BC99D9 /* YSHeartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSHeartView.m; sourceTree = "<group>"; };
 		241933511DD2BCB800AED9E0 /* WWCellWithRightImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWCellWithRightImage.h; sourceTree = "<group>"; };
 		241933521DD2BCB800AED9E0 /* WWCellWithRightImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWCellWithRightImage.m; sourceTree = "<group>"; };
 		241933531DD2BCB800AED9E0 /* WWCellWithRightImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWCellWithRightImage.xib; sourceTree = "<group>"; };
@@ -182,6 +185,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		240DA2771DFFBEC200BC99D9 /* YSHeartView */ = {
+			isa = PBXGroup;
+			children = (
+				240DA2781DFFBED400BC99D9 /* YSHeartView.h */,
+				240DA2791DFFBED400BC99D9 /* YSHeartView.m */,
+			);
+			path = YSHeartView;
+			sourceTree = "<group>";
+		};
 		241933601DD2C7FF00AED9E0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +229,7 @@
 		24540A0E1DD026FE0048B9F2 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				240DA2771DFFBEC200BC99D9 /* YSHeartView */,
 				24A2D8E61DFE9FB0007B10DA /* CurrentPlayingList */,
 				24CCAD611DE6CB9600780CD4 /* YSMusicProgressView */,
 				24540A0F1DD026FE0048B9F2 /* YSLabelList */,
@@ -611,6 +624,7 @@
 				249D8A8A1DBDDD15007499A8 /* main.m in Sources */,
 				24D4CFCA1DC9DEDE0021EF31 /* CollectionViewCell.m in Sources */,
 				245E3CE61DF95C2900865E06 /* WWAppManager.m in Sources */,
+				240DA27A1DFFBED400BC99D9 /* YSHeartView.m in Sources */,
 				24CF2BF51DBF2785005A3640 /* WWFoodBaseModel.m in Sources */,
 				2442600B1DC73E66004364F2 /* WWDinnerFood.m in Sources */,
 				241933691DD2C7FF00AED9E0 /* AddMyFvrtFoodVC.m in Sources */,
