@@ -43,51 +43,47 @@ NSInteger const heartHeight = 40;
 @property (nonatomic) NSMutableArray *m4aMusicSourceList;   //转存音乐源文件成功后, 把新的m4a格式的源文件信息保存在此数组中
 
 
-
 @end
 
 @implementation WWMusicPlayVC
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    if (MusicHelper.theSongBeingPlayed) {
+        _timeLabel1.text = [MusicHelper currentTime];
+        _timeLabel2.text = [MusicHelper duration];
+
+        if (_progressTimer.isValid) {
+            [_progressTimer setFireDate:[NSDate date]];
+        } else {
+            _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimeLabel) userInfo:nil repeats:YES];
+        }
+    }
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [MusicHelper prepareToPlayMusic];
     
-    
     _timeLabel1.text = [MusicHelper currentTime];
-    
     _timeLabel2.text = [MusicHelper duration];
-
+    
     //定时关闭
     [_autoStopView addTapRecognizer:self action:@selector(autoStopViewPressed)];
     //先让"定时关闭"的view藏起来
     _topSpaceBetweenView1and2.constant = -44.0;
-
-    
     _theTF1.delegate = self.theChecker1;
-    
     
     [self addHeartView];
     
+    [self setPlayMode:MusicHelper.thePlayMode];
+    
     
 }
 
--(void)addHeartView{
-    YSHeartView *heartView = [[YSHeartView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - heartWidth)/2, (self.view.frame.size.height-heartHeight)/2, heartWidth, heartHeight)];
-    
-    heartView.rate = 0.5;
-    heartView.lineWidth = 2;
-    heartView.strokeColor = [UIColor lightGrayColor];
-    heartView.fillColor = [UIColor redColor];
-    heartView.changeStrokeColorWhenFillUp = YES;
-    heartView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:heartView];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 #pragma mark - Navigation
@@ -107,10 +103,13 @@ NSInteger const heartHeight = 40;
 
 
 
+#pragma mark
+#pragma mark - IBAction
 - (IBAction)musicBtnPressed:(UIButton *)sender {
-         sender.selected = !sender.selected;
     
     if (sender.tag == 101) {
+        sender.selected = !sender.selected;
+
         if (sender.selected) {
             if (_progressTimer.isValid) {
                 [_progressTimer setFireDate:[NSDate date]];
@@ -121,6 +120,13 @@ NSInteger const heartHeight = 40;
             
             [MusicHelper play];
             
+            MusicHelper.thePlayerDidStopBlock = ^(AVAudioPlayer *thePlayer){
+               
+                //通过改变selected属性来改变button的图片
+                sender.selected = !sender.selected;
+
+                
+            };
         }else{
             //暂停Timer
             [_progressTimer setFireDate:[NSDate distantFuture]];
@@ -128,16 +134,17 @@ NSInteger const heartHeight = 40;
         }
         
     } else if(sender.tag == 102) {
-        if (sender.selected) {
-            MusicHelper.numberOfLoops = 1;
-            
-        } else {
-            MusicHelper.numberOfLoops = -1;
-            
-        }
+        NSInteger thePlayMode = MusicHelper.thePlayMode;
+        
+        NSInteger newInt = (thePlayMode++ % 4 ) + 1;
+        
+        [self setPlayMode:newInt];
+        
+        
         
     }else if (sender.tag == 103){
-       
+        sender.selected = !sender.selected;
+
         CurrentPlayingList *theCustomView = [[NSBundle mainBundle]loadNibNamed:@"CurrentPlayingList" owner:self options:nil][0];
         //theCustomView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
@@ -278,6 +285,8 @@ NSInteger const heartHeight = 40;
     NSLog(@"touch up inside = %f",sender.value);
     
     if (sender.value >= 1.0) {
+        
+        
         if (_playLoopBtn.selected) {    //单曲循环
             [MusicHelper stop];
             _timeLabel1.text = _timeLabel2.text;
@@ -339,19 +348,21 @@ NSInteger const heartHeight = 40;
 }
 
 
-
+#pragma mark
+#pragma mark - Custom Func
 
 -(void)updateTimeLabel{
-    
-    
-    if (MusicHelper.currentProgressValue >= 1.0) {
+    if (MusicHelper.currentProgressValue >= 1.0) {  //1.如果播完了
+        
         if (_playLoopBtn.selected) {
-            [MusicHelper stop];
+           // [MusicHelper stop];
         }
         
-    } else {
+    } else {    //2.还没播完
         
         //NSLog(@"进度条: %f", MusicHelper.currentProgressValue);
+        _timeLabel1.text = [MusicHelper currentTime];
+        _timeLabel2.text = [MusicHelper duration];
         
         _theProgressView.value = MusicHelper.currentProgressValue;
     }
@@ -379,6 +390,47 @@ NSInteger const heartHeight = 40;
         [MusicHelper stop];
         [_countDownTimer invalidate];
     }
+}
+
+-(void)setPlayMode:(NSInteger)theCurrentPlayMode{
+    
+    switch (theCurrentPlayMode) {
+        case 1:
+            [_playLoopBtn setImage:ImageNamed(@"msc_mode_single") forState:UIControlStateNormal];
+            break;
+        case 2:
+            [_playLoopBtn setImage:ImageNamed(@"msc_mode_order") forState:UIControlStateNormal];
+            break;
+        case 3:
+            [_playLoopBtn setImage:ImageNamed(@"msc_mode_loop") forState:UIControlStateNormal];
+            break;
+        case 4:
+            [_playLoopBtn setImage:ImageNamed(@"msc_mode_random") forState:UIControlStateNormal];
+            break;
+            
+        default:
+            break;
+    }
+    
+    MusicHelper.thePlayMode = theCurrentPlayMode;
+    
+}
+
+-(void)addHeartView{
+    YSHeartView *heartView = [[YSHeartView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - heartWidth)/2, (self.view.frame.size.height-heartHeight)/2, heartWidth, heartHeight)];
+    
+    heartView.rate = 0.5;
+    heartView.lineWidth = 2;
+    heartView.strokeColor = [UIColor lightGrayColor];
+    heartView.fillColor = [UIColor redColor];
+    heartView.changeStrokeColorWhenFillUp = YES;
+    heartView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:heartView];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 

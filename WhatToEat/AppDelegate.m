@@ -60,9 +60,18 @@
         CRUserSetBOOL(YES, @"UDFavouriteListMode");
         
         
-        //扫描所有媒体资料库
-        [AppManager QueryAllMusic];
         
+    }
+    //扫描所有媒体资料库
+    [AppManager QueryAllMusic];
+
+    NSNumber *playMode = CRUserObj(@"UDPlayMode");
+    if (playMode) {
+        MusicHelper.thePlayMode = playMode.integerValue;
+
+    }else{
+        //如果没有设置, 默认为1, 即:单曲循环
+        MusicHelper.thePlayMode = PlayMode_Single;
     }
     
     return YES;

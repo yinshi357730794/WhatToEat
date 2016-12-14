@@ -207,7 +207,7 @@ description:__VA_ARGS__];                             \
 #define IMAGE(A) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:A ofType:nil]]
 
 //定义UIImage对象
-#define ImageNamed(_pointer) [UIImage imageNamed:[UIUtil imageName:_pointer]]
+#define ImageNamed(_pointer) [UIImage imageNamed:_pointer]
 
 //建议使用前两种宏定义,性能高于后者
 //----------------------图片----------------------------

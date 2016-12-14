@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="N8H-aX-SeT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="N8H-aX-SeT">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -271,7 +271,7 @@
                                     <action selector="musicBtnPressed:" destination="M6N-d9-mwV" eventType="touchUpInside" id="fhi-GI-9Kf"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ybx-jS-XXn">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ybx-jS-XXn">
                                 <rect key="frame" x="68" y="451" width="184" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="xdC-uA-sZ2"/>
@@ -361,13 +361,13 @@
                                     <constraint firstAttribute="height" constant="44" id="wfO-mB-XDC"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ9-JG-ijI">
+                            <button opaque="NO" tag="102" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ9-JG-ijI">
                                 <rect key="frame" x="12" y="397" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="YbY-ok-ajG"/>
                                     <constraint firstAttribute="height" constant="40" id="nBE-jv-mSY"/>
                                 </constraints>
-                                <state key="normal" image="msc_mode_loop"/>
+                                <state key="normal" image="msc_mode_single"/>
                                 <state key="selected" image="msc_mode_single"/>
                                 <connections>
                                     <action selector="musicBtnPressed:" destination="M6N-d9-mwV" eventType="touchUpInside" id="mo5-ME-0wv"/>
@@ -853,7 +853,6 @@
         <image name="food_ oatmeal" width="250" height="166"/>
         <image name="food_apple" width="400" height="400"/>
         <image name="food_def" width="100" height="100"/>
-        <image name="msc_mode_loop" width="100" height="100"/>
         <image name="msc_mode_single" width="100" height="100"/>
         <image name="msc_pause_sel" width="101" height="100"/>
         <image name="msc_playList" width="100" height="100"/>
