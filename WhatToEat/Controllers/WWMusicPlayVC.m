@@ -309,41 +309,52 @@ NSInteger const heartHeight = 40;
 }
 
 - (IBAction)switchValueChanged:(UISwitch *)sender {
-    if (sender.isOn) {
-        _countDownTimeLabel.text = @"00:00";
-        [UIView animateWithDuration:0.4 animations:^{
-            _topSpaceBetweenView1and2.constant = 0;
-            [self.view layoutIfNeeded];
-        }];
-    } else {
+    
+    if (sender.tag == 201) {
+        if (sender.isOn) {
+            
+        }else{
         
-        if (_countDownTimer.isValid) {
-           
-            YSAlertController *alertController = [[YSAlertController alloc]init];
-            [alertController showAlertViewOnVC:self title:@"有倒计时未完成,确定退出?" subTitle:nil cancelBtnTitle:@"取消" otherBtnTitle:@"确定" confirm:^{
+        }
+        
+    }else if (sender.tag == 202){
+        if (sender.isOn) {
+            _countDownTimeLabel.text = @"00:00";
+            [UIView animateWithDuration:0.4 animations:^{
+                _topSpaceBetweenView1and2.constant = 0;
+                [self.view layoutIfNeeded];
+            }];
+        } else {
+            
+            if (_countDownTimer.isValid) {
                 
-                [_countDownTimer invalidate];
+                YSAlertController *alertController = [[YSAlertController alloc]init];
+                [alertController showAlertViewOnVC:self title:@"有倒计时未完成,确定退出?" subTitle:nil cancelBtnTitle:@"取消" otherBtnTitle:@"确定" confirm:^{
+                    
+                    [_countDownTimer invalidate];
+                    
+                    [UIView animateWithDuration:0.4 animations:^{
+                        _topSpaceBetweenView1and2.constant = -44;
+                        [self.view layoutIfNeeded];
+                    }];
+                    
+                } cancel:^{
+                    [sender setOn:YES];
+                    
+                }];
+                
+            } else {
                 
                 [UIView animateWithDuration:0.4 animations:^{
                     _topSpaceBetweenView1and2.constant = -44;
                     [self.view layoutIfNeeded];
                 }];
-                
-            } cancel:^{
-                [sender setOn:YES];
-                
-            }];
-
-        } else {
+            }
             
-            [UIView animateWithDuration:0.4 animations:^{
-                _topSpaceBetweenView1and2.constant = -44;
-                [self.view layoutIfNeeded];
-            }];
+            
         }
-        
-        
     }
+    
 
 }
 

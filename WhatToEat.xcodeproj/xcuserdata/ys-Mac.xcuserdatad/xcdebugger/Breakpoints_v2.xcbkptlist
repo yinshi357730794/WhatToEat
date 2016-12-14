@@ -554,22 +554,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WhatToEat/Controllers/WWMusicPlayVC.m"
-            timestampString = "503397121.418872"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
-            landmarkName = "-switchValueChanged:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -590,7 +574,7 @@
                   moduleName = "WhatToEat"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ys-Mac/Documents/XcodeProject/0%20-%20AppStore%E4%B8%8A%E7%BA%BF/WhatToEat/WhatToEat/WhatToEat/Controllers/WWMusicPlayVC.m"
-                  timestampString = "503397667.33385"
+                  timestampString = "503400011.429891"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "268"
@@ -605,7 +589,7 @@
                   moduleName = "WhatToEat"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ys-Mac/Documents/XcodeProject/0%20-%20AppStore%E4%B8%8A%E7%BA%BF/WhatToEat/WhatToEat/WhatToEat/Controllers/WWMusicPlayVC.m"
-                  timestampString = "503397667.334911"
+                  timestampString = "503400011.431021"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "268"
@@ -620,7 +604,7 @@
                   moduleName = "WhatToEat"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ys-Mac/Documents/XcodeProject/0%20-%20AppStore%E4%B8%8A%E7%BA%BF/WhatToEat/WhatToEat/WhatToEat/Controllers/WWMusicPlayVC.m"
-                  timestampString = "503397667.335914"
+                  timestampString = "503400011.432068"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "268"
@@ -841,7 +825,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatToEat/Controllers/WWMusicPlayVC.m"
