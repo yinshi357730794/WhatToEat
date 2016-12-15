@@ -51,8 +51,8 @@ NSInteger const heartHeight = 40;
     [super viewWillAppear:animated];
     
     if (MusicHelper.theSongBeingPlayed) {
-        _timeLabel1.text = [MusicHelper currentTime];
-        _timeLabel2.text = [MusicHelper duration];
+        _timeLabel1.text = [MusicHelper currentTimeString];
+        _timeLabel2.text = [MusicHelper durationString];
 
         if (_progressTimer.isValid) {
             [_progressTimer setFireDate:[NSDate date]];
@@ -68,8 +68,8 @@ NSInteger const heartHeight = 40;
     // Do any additional setup after loading the view.
     [MusicHelper prepareToPlayMusic];
     
-    _timeLabel1.text = [MusicHelper currentTime];
-    _timeLabel2.text = [MusicHelper duration];
+    _timeLabel1.text = [MusicHelper currentTimeString];
+    _timeLabel2.text = [MusicHelper durationString];
     
     //定时关闭
     [_autoStopView addTapRecognizer:self action:@selector(autoStopViewPressed)];
@@ -115,7 +115,7 @@ NSInteger const heartHeight = 40;
                 [_progressTimer setFireDate:[NSDate date]];
             } else {
                 _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimeLabel) userInfo:nil repeats:YES];
-
+                
             }
             
             [MusicHelper play];
@@ -124,7 +124,7 @@ NSInteger const heartHeight = 40;
                
                 //通过改变selected属性来改变button的图片
                 sender.selected = !sender.selected;
-
+                
                 
             };
         }else{
@@ -311,10 +311,22 @@ NSInteger const heartHeight = 40;
 - (IBAction)switchValueChanged:(UISwitch *)sender {
     
     if (sender.tag == 201) {
-        if (sender.isOn) {
+        if (MusicHelper.isPlaying) {
+            
+            if (sender.isOn) {
+                
+                [MusicHelper reduceVolume:YES InDuration:MusicHelper.duration - MusicHelper.currentTime];
+                
+                
+            }else{
+                [MusicHelper reduceVolume:NO InDuration:0];
+
+            }
+
             
         }else{
-        
+            //如果没有在播放音乐,则什么也不做
+            MusicHelper.reduceVolumeWhenPlaying = YES;
         }
         
     }else if (sender.tag == 202){
@@ -372,8 +384,8 @@ NSInteger const heartHeight = 40;
     } else {    //2.还没播完
         
         //NSLog(@"进度条: %f", MusicHelper.currentProgressValue);
-        _timeLabel1.text = [MusicHelper currentTime];
-        _timeLabel2.text = [MusicHelper duration];
+        _timeLabel1.text = [MusicHelper currentTimeString];
+        _timeLabel2.text = [MusicHelper durationString];
         
         _theProgressView.value = MusicHelper.currentProgressValue;
     }

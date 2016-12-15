@@ -39,6 +39,9 @@ typedef NS_ENUM(NSUInteger, PlayMode) {
 typedef void (^PlayerDidStopBlock) (AVAudioPlayer *thePlayer);
 @property(nonatomic,copy) PlayerDidStopBlock thePlayerDidStopBlock;
 
+@property(nonatomic)BOOL isPlaying;     //正在播放歌曲呢
+
+
 - (void)prepareToPlayMusic;
 - (void)play;
 - (BOOL)playAtSliderValue:(CGFloat)value;
@@ -47,8 +50,18 @@ typedef void (^PlayerDidStopBlock) (AVAudioPlayer *thePlayer);
 -(void)pause;
 -(void)stop;
 
--(NSString *)currentTime;
--(NSString *)duration;
+-(NSTimeInterval)currentTime;
+-(NSString *)currentTimeString; //eg. 01:32
+
+-(NSTimeInterval)duration;
+-(NSString *)durationString;    //eg. 04:31
+
+
+@property(nonatomic)BOOL reduceVolumeWhenPlaying;       //在播放的时候开启音量渐降
+-(void)reduceVolume:(BOOL)confirmed InDuration:(NSTimeInterval)duration;
+
+
+
 
 
 @end

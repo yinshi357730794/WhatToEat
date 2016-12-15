@@ -10,7 +10,12 @@
 
 @interface WWMusicHelper ()<AVAudioPlayerDelegate>
 @property(nonatomic)AVAudioPlayer *avAudioPlayer;
-@property(nonatomic) NSTimer *playProgressTimer;    //播放进度计时器
+@property(nonatomic,strong) NSTimer *timer_playProgress;    //播放进度计时器
+@property(nonatomic,strong) NSTimer *timer_volumeReduce;    //渐渐减弱音量的timer
+@property(nonatomic,assign) NSInteger timeFrequency;
+@property(nonatomic,assign) CGFloat originalVolume;         //原始音量大小
+@property(nonatomic,assign) CGFloat newVolume;              //最新的音量大小
+@property(nonatomic,assign) CGFloat eachReduction;          //每次减少的音量
 
 @end
 
@@ -78,6 +83,10 @@
 }
 
 
+-(BOOL)isPlaying{
+    
+    return _avAudioPlayer.isPlaying;
+}
 
 #pragma mark
 #pragma mark - Func
@@ -148,9 +157,13 @@
 
 
 -(void)play{
-    
-     [_avAudioPlayer play];
-    
+  
+
+    if (self.reduceVolumeWhenPlaying) {
+        [self reduceVolume:YES InDuration:self.duration];
+    }
+    [_avAudioPlayer play];
+
     //_playProgressTimer = [NSTimer scheduledTimerWithTimeInterval:<#(NSTimeInterval)#> target:<#(nonnull id)#> selector:<#(nonnull SEL)#> userInfo:<#(nullable id)#> repeats:<#(BOOL)#>]
     
 }
@@ -179,7 +192,7 @@
     //预播放
     [_avAudioPlayer prepareToPlay];
     
-    [_avAudioPlayer play];
+    [self play];
 
     
     if (_avAudioPlayer.isPlaying) {
@@ -204,8 +217,11 @@
     }
 }
 
+-(NSTimeInterval)currentTime{
+    return _avAudioPlayer.currentTime;
+}
 
--(NSString *)currentTime{
+-(NSString *)currentTimeString{
     NSTimeInterval time =  _avAudioPlayer.currentTime;
     
     NSInteger currentTimeInteger = time;
@@ -220,7 +236,10 @@
     return timeStr;
 }
 
--(NSString *)duration{
+-(NSTimeInterval)duration{
+    return _avAudioPlayer.duration;
+}
+-(NSString *)durationString{
     NSTimeInterval time = _avAudioPlayer.duration;
     NSInteger timeTotleSecond = time;
     NSInteger minutes =  timeTotleSecond/60;
@@ -232,5 +251,58 @@
     
     return durationStr;
 }
+
+
+
+-(void)reduceVolume:(BOOL)confirmed InDuration:(NSTimeInterval)duration{
+    
+    if (confirmed) {
+        NSLog(@"开始降低音量, 当前音量是: %f",_avAudioPlayer.volume);
+        _timer_volumeReduce = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(timerFunc_reduceVolume) userInfo:nil repeats:YES];
+       
+        //每30秒减低音量一次, 歌曲总共300秒, 则timeFrequency = 10次
+        _timeFrequency =  duration / 30;
+        _originalVolume =  _avAudioPlayer.volume;
+        _newVolume =  _originalVolume;
+        _eachReduction =  _originalVolume / _timeFrequency;  //每次降低的音量
+
+    }else{
+        [_timer_volumeReduce invalidate];
+        
+    }
+    
+
+}
+
+-(void)timerFunc_reduceVolume{
+    _newVolume = _newVolume - _eachReduction;
+    _avAudioPlayer.volume = _newVolume;
+    NSLog(@"当前音量是: %f",_avAudioPlayer.volume);
+    if (_avAudioPlayer.volume == 0) {
+        [_avAudioPlayer stop];
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

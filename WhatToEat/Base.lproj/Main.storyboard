@@ -324,31 +324,6 @@
                                     <constraint firstItem="SfU-1l-unc" firstAttribute="centerY" secondItem="ZlN-3D-moY" secondAttribute="centerY" id="hmK-7j-AXq"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="weu-lD-3J4">
-                                <rect key="frame" x="0.0" y="128" width="320" height="44"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定时关闭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMY-l5-32u">
-                                        <rect key="frame" x="8" y="12" width="70" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RdC-xn-jfN">
-                                        <rect key="frame" x="257" y="7" width="51" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="onTintColor" red="0.20392156859999999" green="0.43921568630000002" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="switchValueChanged:" destination="M6N-d9-mwV" eventType="valueChanged" id="m0p-Y5-r7k"/>
-                                        </connections>
-                                    </switch>
-                                </subviews>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="mMY-l5-32u" firstAttribute="centerY" secondItem="weu-lD-3J4" secondAttribute="centerY" id="F9D-Jq-GAk"/>
-                                    <constraint firstItem="mMY-l5-32u" firstAttribute="leading" secondItem="weu-lD-3J4" secondAttribute="leadingMargin" id="Kaw-X4-RuT"/>
-                                    <constraint firstAttribute="height" constant="44" id="wfO-mB-XDC"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7C-l1-krP" userLabel="View2">
                                 <rect key="frame" x="0.0" y="172" width="320" height="44"/>
                                 <subviews>
@@ -384,6 +359,31 @@
                                     <constraint firstItem="MK5-xs-VEf" firstAttribute="centerY" secondItem="Q7C-l1-krP" secondAttribute="centerY" id="sBP-lV-nRX"/>
                                     <constraint firstItem="DoZ-cL-2t9" firstAttribute="leading" secondItem="Q7C-l1-krP" secondAttribute="leading" constant="10" id="t8b-eT-zXO"/>
                                     <constraint firstItem="DoZ-cL-2t9" firstAttribute="centerY" secondItem="Q7C-l1-krP" secondAttribute="centerY" id="y9q-AP-XTk"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="weu-lD-3J4">
+                                <rect key="frame" x="0.0" y="128" width="320" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="定时关闭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMY-l5-32u">
+                                        <rect key="frame" x="8" y="12" width="70" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" tag="202" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RdC-xn-jfN">
+                                        <rect key="frame" x="257" y="7" width="51" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="onTintColor" red="0.20392156859999999" green="0.43921568630000002" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="switchValueChanged:" destination="M6N-d9-mwV" eventType="valueChanged" id="m0p-Y5-r7k"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="mMY-l5-32u" firstAttribute="centerY" secondItem="weu-lD-3J4" secondAttribute="centerY" id="F9D-Jq-GAk"/>
+                                    <constraint firstItem="mMY-l5-32u" firstAttribute="leading" secondItem="weu-lD-3J4" secondAttribute="leadingMargin" id="Kaw-X4-RuT"/>
+                                    <constraint firstAttribute="height" constant="44" id="wfO-mB-XDC"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" tag="102" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZ9-JG-ijI">
