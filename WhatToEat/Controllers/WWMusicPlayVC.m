@@ -36,11 +36,14 @@ NSInteger const heartHeight = 40;
 @property(nonatomic) NSTimer *countDownTimer;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpaceBetweenView1and2;
-@property(nonatomic,assign) NSInteger totalCountDownTime ;
+@property(nonatomic,assign) NSInteger totalCountDownTime ;  //定时关闭的总秒数
 @property (weak, nonatomic) IBOutlet UIButton *playLoopBtn; //循环按钮
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 
 @property (nonatomic) NSMutableArray *m4aMusicSourceList;   //转存音乐源文件成功后, 把新的m4a格式的源文件信息保存在此数组中
+
+
+@property (weak, nonatomic) IBOutlet UISwitch *theSwitch2;
 
 
 @end
@@ -117,6 +120,10 @@ NSInteger const heartHeight = 40;
                 _progressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimeLabel) userInfo:nil repeats:YES];
                 
             }
+            if (_countDownTimer.isValid) {
+                _countDownTimer.fireDate = [NSDate date];
+            }
+
             
             [MusicHelper play];
             
@@ -130,6 +137,8 @@ NSInteger const heartHeight = 40;
         }else{
             //暂停Timer
             [_progressTimer setFireDate:[NSDate distantFuture]];
+            _countDownTimer.fireDate = [NSDate distantFuture];
+            
             [MusicHelper pause];
         }
         
@@ -310,26 +319,34 @@ NSInteger const heartHeight = 40;
 
 - (IBAction)switchValueChanged:(UISwitch *)sender {
     
+    //1.音量渐降
     if (sender.tag == 201) {
         if (MusicHelper.isPlaying) {
             
             if (sender.isOn) {
-                
-                [MusicHelper reduceVolume:YES InDuration:MusicHelper.duration - MusicHelper.currentTime];
-                
-                
+                if (_theSwitch2.isOn) {
+                    [MusicHelper reduceVolume:YES InDuration:_totalCountDownTime];
+
+                } else {
+                    [MusicHelper reduceVolume:YES InDuration:MusicHelper.duration - MusicHelper.currentTime];
+                }
             }else{
                 [MusicHelper reduceVolume:NO InDuration:0];
-
             }
-
             
         }else{
-            //如果没有在播放音乐,则什么也不做
-            MusicHelper.reduceVolumeWhenPlaying = YES;
+            
+            if (sender.isOn) {
+                
+                MusicHelper.reduceVolumeWhenPlaying = YES;
+            }else{
+                MusicHelper.reduceVolumeWhenPlaying = NO;
+            }
         }
         
-    }else if (sender.tag == 202){
+    }
+    //2.定时关闭
+    else if (sender.tag == 202){
         if (sender.isOn) {
             _countDownTimeLabel.text = @"00:00";
             [UIView animateWithDuration:0.4 animations:^{
@@ -473,7 +490,14 @@ NSInteger const heartHeight = 40;
                 _countDownTimeLabel.hidden = NO;
                 _countDownTimeLabel.text = [NSString stringWithTimeInterval:_totalCountDownTime];
 
-               _countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startCountDown:) userInfo:nil repeats:YES];
+                if (MusicHelper.isPlaying) {
+                    _countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startCountDown:) userInfo:nil repeats:YES];
+
+                } else {
+                    _countDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startCountDown:) userInfo:nil repeats:YES];
+                    _countDownTimer.fireDate = [NSDate distantFuture];
+
+                }
                 
                 
             }

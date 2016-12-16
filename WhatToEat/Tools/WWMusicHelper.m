@@ -1,4 +1,4 @@
-//
+    //
 //  WWMusicHelper.m
 //  WhatToEat
 //
@@ -257,7 +257,7 @@
 -(void)reduceVolume:(BOOL)confirmed InDuration:(NSTimeInterval)duration{
     
     if (confirmed) {
-        NSLog(@"开始降低音量, 当前音量是: %f",_avAudioPlayer.volume);
+        NSLog(@"开始降低音量, 当前音量是: %f, 渐降时长:%f秒",_avAudioPlayer.volume,duration);
         _timer_volumeReduce = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(timerFunc_reduceVolume) userInfo:nil repeats:YES];
        
         //每30秒减低音量一次, 歌曲总共300秒, 则timeFrequency = 10次

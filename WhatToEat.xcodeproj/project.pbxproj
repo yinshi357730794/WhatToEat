@@ -250,7 +250,6 @@
 		249D8A7C1DBDDD15007499A8 = {
 			isa = PBXGroup;
 			children = (
-				249D8AA31DBDE067007499A8 /* Tools */,
 				249D8A871DBDDD15007499A8 /* WhatToEat */,
 				249D8A861DBDDD15007499A8 /* Products */,
 				24E3F8551DE7DAF7009F1CDC /* Frameworks */,
@@ -278,6 +277,7 @@
 				24D4CFAD1DC9DEDE0021EF31 /* Views */,
 				24CF2BF11DBF2756005A3640 /* Models */,
 				24E3F84C1DE7D8DC009F1CDC /* Vendors */,
+				249D8AA31DBDE067007499A8 /* Tools */,
 				249D8A881DBDDD15007499A8 /* Supporting Files */,
 			);
 			path = WhatToEat;
@@ -308,8 +308,7 @@
 				24CCAD581DE6C3EE00780CD4 /* WWMusicHelper.m */,
 				249D8AA41DBDE067007499A8 /* Expand */,
 			);
-			name = Tools;
-			path = WhatToEat/Tools;
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		249D8AA41DBDE067007499A8 /* Expand */ = {
