@@ -423,7 +423,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "321"
             endingLineNumber = "321"
-            landmarkName = "-switchValueChanged:"
+            landmarkName = "-sliderTouched:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -454,7 +454,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "535"
-            endingLineNumber = "535">
+            endingLineNumber = "535"
+            landmarkName = "@implementation WWMusicPlayVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -468,7 +470,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "529"
-            endingLineNumber = "529">
+            endingLineNumber = "529"
+            landmarkName = "@implementation WWMusicPlayVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -547,7 +551,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "431"
             endingLineNumber = "431"
-            landmarkName = "-startCountDown:"
+            landmarkName = "-timeUp:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -882,7 +886,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "438"
             endingLineNumber = "438"
-            landmarkName = "-setPlayMode:"
+            landmarkName = "-startCountDown:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

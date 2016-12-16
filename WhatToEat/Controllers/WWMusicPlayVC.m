@@ -173,6 +173,17 @@ NSInteger const heartHeight = 40;
 //     
     
     }
+    //后腿15秒
+    else if (sender.tag == 104){
+    
+        
+        
+    }
+    //前进15秒
+    else if (sender.tag == 104){
+        
+    }
+    
 
     
     
@@ -314,7 +325,7 @@ NSInteger const heartHeight = 40;
     }
     
 
-
+    
 }
 
 - (IBAction)switchValueChanged:(UISwitch *)sender {
@@ -326,14 +337,13 @@ NSInteger const heartHeight = 40;
             if (sender.isOn) {
                 if (_theSwitch2.isOn) {
                     [MusicHelper reduceVolume:YES InDuration:_totalCountDownTime];
-
+                    
                 } else {
                     [MusicHelper reduceVolume:YES InDuration:MusicHelper.duration - MusicHelper.currentTime];
                 }
             }else{
                 [MusicHelper reduceVolume:NO InDuration:0];
             }
-            
         }else{
             
             if (sender.isOn) {
